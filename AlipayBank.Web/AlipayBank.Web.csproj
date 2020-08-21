@@ -1,0 +1,40 @@
+<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
+  <PropertyGroup>
+    <AssemblyName>AlipayBank.Web</AssemblyName>
+    <GenerateAssemblyInfo>False</GenerateAssemblyInfo>
+    <OutputType>WinExe</OutputType>
+    <UseWindowsForms>True</UseWindowsForms>
+    <TargetFramework>net461</TargetFramework>
+    <PlatformTarget>x86</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup>
+    <LangVersion>Preview</LangVersion>
+    <AllowUnsafeBlocks>True</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="HtmlAgilityPack">
+      <HintPath>E:\C#软件开发集合\公共类\HtmlAgilityPack.dll</HintPath>
+    </Reference>
+    <Reference Include="WebSocket4Net">
+      <HintPath>C:\Users\s\Desktop\123\WebSocket4Net.dll</HintPath>
+    </Reference>
+    <Reference Include="SuperSocket.ClientEngine">
+      <HintPath>C:\Users\s\Desktop\123\SuperSocket.ClientEngine.dll</HintPath>
+    </Reference>
+    <Reference Include="HttpHelper">
+      <HintPath>C:\Users\s\Desktop\123\HttpHelper.dll</HintPath>
+    </Reference>
+    <Reference Include="Geckofx-Winforms">
+      <HintPath>C:\Users\s\Desktop\123\Geckofx-Winforms.dll</HintPath>
+    </Reference>
+    <Reference Include="Geckofx-Core">
+      <HintPath>C:\Users\s\Desktop\123\Geckofx-Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>C:\Users\s\Desktop\123\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="zxing">
+      <HintPath>C:\Users\s\Desktop\123\zxing.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+</Project>
