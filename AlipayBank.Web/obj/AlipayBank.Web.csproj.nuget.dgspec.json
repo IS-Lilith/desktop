@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\s\\Desktop\\123\\AlipayBank.Web\\AlipayBank.Web.csproj": {}
+    "C:\\Users\\s\\Documents\\GitHub\\desktop-tutorial\\AlipayBank.Web\\AlipayBank.Web.csproj": {}
   },
   "projects": {
-    "C:\\Users\\s\\Desktop\\123\\AlipayBank.Web\\AlipayBank.Web.csproj": {
+    "C:\\Users\\s\\Documents\\GitHub\\desktop-tutorial\\AlipayBank.Web\\AlipayBank.Web.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\s\\Desktop\\123\\AlipayBank.Web\\AlipayBank.Web.csproj",
+        "projectUniqueName": "C:\\Users\\s\\Documents\\GitHub\\desktop-tutorial\\AlipayBank.Web\\AlipayBank.Web.csproj",
         "projectName": "AlipayBank.Web",
-        "projectPath": "C:\\Users\\s\\Desktop\\123\\AlipayBank.Web\\AlipayBank.Web.csproj",
+        "projectPath": "C:\\Users\\s\\Documents\\GitHub\\desktop-tutorial\\AlipayBank.Web\\AlipayBank.Web.csproj",
         "packagesPath": "C:\\Users\\s\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\s\\Desktop\\123\\AlipayBank.Web\\obj\\",
+        "outputPath": "C:\\Users\\s\\Documents\\GitHub\\desktop-tutorial\\AlipayBank.Web\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\s\\AppData\\Roaming\\NuGet\\NuGet.Config",

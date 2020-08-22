@@ -622,13 +622,6 @@ namespace AlipayBank.Web
                     {
                         return;
                     }
-                    if (e.Uri.ToString().Contains("login"))
-                    {
-                        WriteLog("掉线了");
-                        绑定用户.Enabled = true;
-                        client.Dispose();
-                        return;
-                    }
                     if (e.Uri.ToString().Contains("account/index.htm"))
                     {
                         string input = gecko.Document.Body.InnerHtml.ToString();
@@ -693,6 +686,13 @@ namespace AlipayBank.Web
                             });
                         }
                         isLogin = true;
+                    }
+                    if (e.Uri.ToString().Contains("login"))
+                    {
+                        WriteLog("掉线了");
+                        绑定用户.Enabled = true;
+                        client.Dispose();
+                        return;
                     }
                     if (e.Uri.ToString().Contains("fundAccountDetail"))
                     {
