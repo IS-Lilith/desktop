@@ -788,7 +788,7 @@ namespace AlipayBank.Web
                             });
                         });
                     }
-                    if (e.Uri.ToString().Contains("advanced"))
+                    if (e.Uri.ToString().Contains("advanced"))//.htm
                     {
                         Task.Run(delegate
                         {
@@ -804,33 +804,34 @@ namespace AlipayBank.Web
                                 doc.OptionOutputAsXml = true;
                                 HtmlNode node = doc.DocumentNode.SelectSingleNode(".//*[@id=\"tradeRecordsIndex\"]/tbody");
                                 HtmlNodeCollection trNodeList = node.SelectNodes("tr[td]");
-
-                                foreach (HtmlNode item in trNodeList)
+                                if (node.SelectNodes("tr[td]") != null)
                                 {
-                                    HtmlNodeCollection tdNodeList1 = item.SelectNodes("td");
-                                    //0 3 5
-                                    //MessageBox.Show(reg.Replace(tdNodeList1[0].InnerText, " "));
-
-                                    string value = reg.Replace(tdNodeList1[0].InnerText, " ");
-                                    string value2 = reg1.Replace(tdNodeList1[3].InnerText, "");
-                                    string text = reg.Replace(tdNodeList1[5].InnerText.Replace("+", ""), "");
-                                    if (!text.Contains("-") && !OrderListOk.Contains(value2) && userinfo != null && userinfo.userid != null)
+                                    foreach (HtmlNode item in trNodeList)
                                     {
-                                        OrderListOk.Add(value2);
-                                        long num = ConvertDateTimeToInt(DateTime.Now.ToString("yyyy-MM-dd ") + value);
-                                        orderModel.order order = new orderModel.order();
-                                        orderModel orderModel = new orderModel();
-                                        order.tradeAmount = text;
-                                        order.tradeNo = value2;
-                                        order.tradeTime = string.Concat(num);
-                                        order.landid = (userinfo.id ?? "");
-                                        orderModel.Json = JsonConvert.SerializeObject(order);
-                                        orderModel.type = "YeOrderList";
-                                        client.SendMessage(JsonConvert.SerializeObject(orderModel));
-                                        WriteLog("订单回调-个人：" + JsonConvert.SerializeObject(orderModel));
+                                        HtmlNodeCollection tdNodeList1 = item.SelectNodes("td");
+                                        //0 3 5
+                                        //MessageBox.Show(reg.Replace(tdNodeList1[0].InnerText, " "));
+
+                                        string value = reg.Replace(tdNodeList1[0].InnerText, " ");
+                                        string value2 = reg1.Replace(tdNodeList1[3].InnerText, "");
+                                        string text = reg.Replace(tdNodeList1[5].InnerText.Replace("+", ""), "");
+                                        if (!text.Contains("-") && !OrderListOk.Contains(value2) && userinfo != null && userinfo.userid != null)
+                                        {
+                                            OrderListOk.Add(value2);
+                                            long num = ConvertDateTimeToInt(DateTime.Now.ToString("yyyy-MM-dd ") + value);
+                                            orderModel.order order = new orderModel.order();
+                                            orderModel orderModel = new orderModel();
+                                            order.tradeAmount = text;
+                                            order.tradeNo = value2;
+                                            order.tradeTime = string.Concat(num);
+                                            order.landid = (userinfo.id ?? "");
+                                            orderModel.Json = JsonConvert.SerializeObject(order);
+                                            orderModel.type = "YeOrderList";
+                                            client.SendMessage(JsonConvert.SerializeObject(orderModel));
+                                            WriteLog("订单回调-个人：" + JsonConvert.SerializeObject(orderModel));
+                                        }
                                     }
                                 }
-
                                 #region
                                 //Regex regex = new Regex("block;\">(?<date>.*?)</span><span style=\"display: block;\">(?<time>.*?)</span>", RegexOptions.Multiline);
                                 //Regex regex2 = new Regex("<span data-clipboard-text=\"(?<orderNo>.*?)\" tit", RegexOptions.Multiline);
@@ -1432,6 +1433,8 @@ namespace AlipayBank.Web
             this.button3 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
+            this.radioButton2 = new System.Windows.Forms.RadioButton();
+            this.radioButton1 = new System.Windows.Forms.RadioButton();
             this.button6 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.绑定用户 = new System.Windows.Forms.Button();
@@ -1445,8 +1448,6 @@ namespace AlipayBank.Web
             this.lbLog = new System.Windows.Forms.ListBox();
             this.panel2 = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.radioButton1 = new System.Windows.Forms.RadioButton();
-            this.radioButton2 = new System.Windows.Forms.RadioButton();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -1454,7 +1455,7 @@ namespace AlipayBank.Web
             // 
             // panel1
             // 
-            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
             this.panel1.Location = new System.Drawing.Point(12, 236);
             this.panel1.Name = "panel1";
@@ -1537,6 +1538,28 @@ namespace AlipayBank.Web
             this.button5.UseVisualStyleBackColor = true;
             this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
+            // radioButton2
+            // 
+            this.radioButton2.AutoSize = true;
+            this.radioButton2.Location = new System.Drawing.Point(320, 123);
+            this.radioButton2.Name = "radioButton2";
+            this.radioButton2.Size = new System.Drawing.Size(71, 16);
+            this.radioButton2.TabIndex = 34;
+            this.radioButton2.Text = "个人模式";
+            this.radioButton2.UseVisualStyleBackColor = true;
+            // 
+            // radioButton1
+            // 
+            this.radioButton1.AutoSize = true;
+            this.radioButton1.Checked = true;
+            this.radioButton1.Location = new System.Drawing.Point(217, 123);
+            this.radioButton1.Name = "radioButton1";
+            this.radioButton1.Size = new System.Drawing.Size(71, 16);
+            this.radioButton1.TabIndex = 33;
+            this.radioButton1.TabStop = true;
+            this.radioButton1.Text = "商户模式";
+            this.radioButton1.UseVisualStyleBackColor = true;
+            // 
             // button6
             // 
             this.button6.Location = new System.Drawing.Point(320, 23);
@@ -1599,6 +1622,7 @@ namespace AlipayBank.Web
             this.txtUserName.Name = "txtUserName";
             this.txtUserName.Size = new System.Drawing.Size(165, 21);
             this.txtUserName.TabIndex = 23;
+            this.txtUserName.Text = "13813813800";
             // 
             // label3
             // 
@@ -1625,6 +1649,7 @@ namespace AlipayBank.Web
             this.txtUserPwd.Name = "txtUserPwd";
             this.txtUserPwd.Size = new System.Drawing.Size(165, 21);
             this.txtUserPwd.TabIndex = 26;
+            this.txtUserPwd.Text = "aa112233";
             // 
             // lbLog
             // 
@@ -1636,7 +1661,7 @@ namespace AlipayBank.Web
             // 
             // panel2
             // 
-            this.panel2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+            this.panel2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
             this.panel2.Location = new System.Drawing.Point(1044, 236);
             this.panel2.Name = "panel2";
@@ -1650,28 +1675,6 @@ namespace AlipayBank.Web
             this.pictureBox1.Size = new System.Drawing.Size(398, 208);
             this.pictureBox1.TabIndex = 34;
             this.pictureBox1.TabStop = false;
-            // 
-            // radioButton1
-            // 
-            this.radioButton1.AutoSize = true;
-            this.radioButton1.Checked = true;
-            this.radioButton1.Location = new System.Drawing.Point(217, 123);
-            this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(71, 16);
-            this.radioButton1.TabIndex = 33;
-            this.radioButton1.TabStop = true;
-            this.radioButton1.Text = "商户模式";
-            this.radioButton1.UseVisualStyleBackColor = true;
-            // 
-            // radioButton2
-            // 
-            this.radioButton2.AutoSize = true;
-            this.radioButton2.Location = new System.Drawing.Point(320, 123);
-            this.radioButton2.Name = "radioButton2";
-            this.radioButton2.Size = new System.Drawing.Size(71, 16);
-            this.radioButton2.TabIndex = 34;
-            this.radioButton2.Text = "个人模式";
-            this.radioButton2.UseVisualStyleBackColor = true;
             // 
             // MainFrom
             // 

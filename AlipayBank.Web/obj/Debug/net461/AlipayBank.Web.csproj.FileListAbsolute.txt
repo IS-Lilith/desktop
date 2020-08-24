@@ -34,7 +34,6 @@ C:\Users\s\Documents\GitHub\desktop-tutorial\AlipayBank.Web\bin\Debug\net461\Htt
 C:\Users\s\Documents\GitHub\desktop-tutorial\AlipayBank.Web\bin\Debug\net461\Geckofx-Winforms.pdb
 C:\Users\s\Documents\GitHub\desktop-tutorial\AlipayBank.Web\bin\Debug\net461\Geckofx-Core.pdb
 C:\Users\s\Documents\GitHub\desktop-tutorial\AlipayBank.Web\bin\Debug\net461\Newtonsoft.Json.xml
-C:\Users\s\Documents\GitHub\desktop-tutorial\AlipayBank.Web\obj\Debug\net461\AlipayBank.Web.csprojAssemblyReference.cache
 C:\Users\s\Documents\GitHub\desktop-tutorial\AlipayBank.Web\obj\Debug\net461\AlipayBank.Web.AlipayBank.Web.MainFrom.resources
 C:\Users\s\Documents\GitHub\desktop-tutorial\AlipayBank.Web\obj\Debug\net461\AlipayBank.Web.csproj.GenerateResource.cache
 C:\Users\s\Documents\GitHub\desktop-tutorial\AlipayBank.Web\obj\Debug\net461\AlipayBank.Web.csproj.CoreCompileInputs.cache
